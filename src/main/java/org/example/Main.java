@@ -1,28 +1,102 @@
 package org.example;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
 
-    public static long factorialRecursive(int n) {
-        if (n == 0) {
-            return 1;
-        }
-        return n * factorial(n - 1);
-    }
+    private static List<Integer> cart = new ArrayList<>();
 
-    public static long factorial(int n) {
-        long res = 1;
-        while (n > 0) {
-            res *= n;
-            --n;
-        }
-        return res;
-    }
-
-    public static void main(String[] args) {
+    public static boolean authenticate() {
         Scanner sc = new Scanner(System.in);
-        int n = sc.nextInt();
-        System.out.printf("%d %d", factorialRecursive(n), factorial(n));
+
+        System.out.print("Input your login: ");
+        String login = sc.next();
+
+        System.out.print("Input your password: ");
+        String pswd = sc.next();
+
+        System.out.println("Welcome!");
+        return true;
+    }
+
+    public static int execMainMenu() {
+        Scanner sc = new Scanner(System.in);
+        String cmd;
+        while (true) {
+            System.out.println("""
+                    1. Показать все товары
+                    2. Показать товары из определенной категории
+                    3. Перейти в корзину
+                    4. Выход""");
+
+            cmd = sc.next();
+            switch (cmd) {
+                case "1":
+                    return 1;
+                case "2":
+                    return 2;
+                case "3":
+                    return 3;
+                case "4":
+                    return 4;
+                default:
+                    System.out.println("Неправильный ввод!\n");
+            }
+        }
+    }
+
+    public static Thing[] createArrayOfThings() {
+        Thing[] things = new Thing[4];
+        things[0] = new Laptop();
+        things[1] = new TShirt();
+        things[2] = new Skirt();
+        things[3] = new PS4Game();
+        return things;
+    }
+
+    public static void showAllThings(Thing[] things) {
+        Scanner sc = new Scanner(System.in);
+        for (int i = 0; i < things.length; ++i) {
+            System.out.printf("%d. %s\n", i + 1, things[i].toString());
+        }
+        System.out.printf("%d. Назад в главное меню\n", things.length + 1);
+        System.out.print("Чтобы добавить товар в корзину нажмите его номер: ");
+        String thing_type;
+        while (true) {
+            thing_type = sc.next();
+            if (Objects.equals(thing_type, Integer.valueOf(things.length + 1).toString())) {
+                break;
+            }
+            for (int i = 0; i < things.length; ++i) {
+                if (Objects.equals(thing_type, Integer.valueOf(i + 1).toString())) {
+                    cart.add(i);
+                    break;
+                }
+            }
+            System.out.print("Чтобы добавить товар в корзину нажмите его номер: ");
+        }
+    }
+
+    public static void main(String[] Args) {
+        Thing[] things = createArrayOfThings();
+        authenticate();
+        int cmd = execMainMenu();
+        while (true) {
+            switch (cmd) {
+                case 1:
+                    showAllThings(things); break;
+                case 2:
+                    ; break;
+                case 3:
+                    ; break;
+                case 4:
+                    System.out.println("До свидания!");
+                    return;
+            }
+            cmd = execMainMenu();
+        }
     }
 }

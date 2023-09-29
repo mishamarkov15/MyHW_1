@@ -80,6 +80,69 @@ public class Main {
         }
     }
 
+    public static void showCart(Thing[] things) {
+        System.out.println("Ваша корзина\n");
+        double total_sum = 0.;
+        for (int i = 0; i < cart.size(); ++i) {
+            System.out.printf("%d. %s\n", i + 1, things[cart.get(i)]);
+            total_sum += things[cart.get(i)].price;
+        }
+        System.out.printf("Итого: %.2f\n", total_sum);
+        System.out.println("a. Купить\nb. Назад в меню");
+
+        Scanner sc = new Scanner(System.in);
+        String cmd;
+        while (true) {
+            cmd = sc.next();
+            switch (cmd) {
+                case "a":
+                    cart.clear();
+                    System.out.println("Покупка успешно завершена");
+                    return;
+                case "b":
+                    return;
+                default:
+                    System.out.println("Неверный ввод.");
+                    break;
+            }
+        }
+    }
+
+    public static Thing[] showThingsByCategory(Thing[] things) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Выберите категорию.");
+
+        int i = 1;
+        for (Category category : Category.values()) {
+            System.out.printf("%d. %s\n", i++, category);
+        }
+        System.out.printf("%d. Назад\n", Category.values().length + 1);
+
+        ArrayList<Thing> res = new ArrayList<>();
+        String cmd;
+        while (true) {
+            cmd = sc.next();
+            for (int j = 0; j < Category.values().length; ++j) {
+                if (Objects.equals(cmd, Integer.valueOf(j + 1).toString())) {
+                    for (Thing thing : things) {
+                        if (thing.category == Category.values()[j]) {
+                            res.add(thing);
+                        }
+                    }
+                    if (res.size() == 0) {
+                        System.out.println("Товаров выбранной категории нет.");
+                    }
+                    return res.toArray(new Thing[res.size()]);
+                }
+            }
+            if (Objects.equals(cmd, Integer.valueOf(Category.values().length + 1).toString())) {
+                break;
+            }
+            System.out.println("Неверный ввод.");
+        }
+        return res.toArray(new Thing[res.size()]);
+    }
+
     public static void main(String[] Args) {
         Thing[] things = createArrayOfThings();
         authenticate();
@@ -87,11 +150,19 @@ public class Main {
         while (true) {
             switch (cmd) {
                 case 1:
-                    showAllThings(things); break;
+                    showAllThings(things);
+                    break;
                 case 2:
-                    ; break;
+                    Thing[] tmp = showThingsByCategory(things);
+                    if (tmp.length == 0) {
+                        System.out.println("Возврат в меню.");
+                    } else {
+                        showAllThings(tmp);
+                    }
+                    break;
                 case 3:
-                    ; break;
+                    showCart(things);
+                    break;
                 case 4:
                     System.out.println("До свидания!");
                     return;

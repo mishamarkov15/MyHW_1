@@ -7,6 +7,10 @@ public class Monitor implements Scannable {
     public int height;
     public int width;
 
+    public Monitor() {
+
+    }
+
     public Monitor(double diagonalInches, int height, int width) {
         this.diagonalInches = diagonalInches;
         this.height = height;

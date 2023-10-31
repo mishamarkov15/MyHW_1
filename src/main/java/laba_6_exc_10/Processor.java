@@ -6,6 +6,10 @@ public class Processor implements Scannable {
     private int threads;
     private int frequencyMhz;
 
+    public Processor() {
+
+    }
+
     public Processor(int threads, int frequencyMhz) {
         this.threads = threads;
         this.frequencyMhz = frequencyMhz;

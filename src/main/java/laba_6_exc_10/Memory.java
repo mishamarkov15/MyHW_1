@@ -6,6 +6,10 @@ public class Memory implements Scannable {
     public int amountGB;
     public int frequencyMhz;
 
+    public Memory() {
+
+    }
+
     public Memory(int amountGB, int frequencyMhz) {
         this.amountGB = amountGB;
         this.frequencyMhz = frequencyMhz;

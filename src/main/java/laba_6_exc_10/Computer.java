@@ -14,13 +14,29 @@ public class Computer implements Scannable {
     private Memory memory;
     private Processor processor;
 
+    public Mark getMark() {
+        return mark;
+    }
+
+    public Memory getMemory() {
+        return memory;
+    }
+
+    public Processor getProcessor() {
+        return processor;
+    }
+
+    public Monitor getMonitor() {
+        return monitor;
+    }
+
     @Override
     public void scan() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("Выберите марку:\n" +
+        System.out.print("Выберите марку:\n" +
                 "1. Apple\n" +
                 "2. IBM\n" +
-                "3. Microsoft\n");
+                "3. Microsoft\nMark: ");
         int mark = sc.nextInt();
         while (mark < 1 || mark > 3) {
             System.out.println("Неверный ввод. Повторите.");
@@ -33,12 +49,15 @@ public class Computer implements Scannable {
         }
 
         System.out.println("Ввод монитора\n");
+        monitor = new Monitor();
         monitor.scan();
 
         System.out.println("Ввод памяти\n");
+        memory = new Memory();
         memory.scan();
 
         System.out.println("Ввод процессора\n");
+        processor = new Processor();
         processor.scan();
     }
 }

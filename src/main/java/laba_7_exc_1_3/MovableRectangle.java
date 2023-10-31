@@ -1,4 +1,4 @@
-package laba_7_exc_1_2;
+package laba_7_exc_1_3;
 
 public class MovableRectangle implements Movable {
     private MovablePoint topLeft;

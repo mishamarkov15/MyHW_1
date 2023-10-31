@@ -9,6 +9,10 @@ public class MovableRectangle implements Movable {
         bottomRight = new MovablePoint(x2, y2, xSpeed, ySpeed);
     }
 
+    private boolean speedTest() {
+        return topLeft.ySpeed == bottomRight.ySpeed && topLeft.xSpeed == bottomRight.xSpeed;
+    }
+
     @Override
     public String toString() {
         return "Top left:\n" +
@@ -18,25 +22,33 @@ public class MovableRectangle implements Movable {
 
     @Override
     public void moveUp() {
-        topLeft.moveUp();
-        bottomRight.moveUp();
+        if (speedTest()) {
+            topLeft.moveUp();
+            bottomRight.moveUp();
+        }
     }
 
     @Override
     public void moveDown() {
-        topLeft.moveDown();
-        bottomRight.moveDown();
+        if (speedTest()) {
+            topLeft.moveDown();
+            bottomRight.moveDown();
+        }
     }
 
     @Override
     public void moveLeft() {
-        topLeft.moveLeft();
-        bottomRight.moveLeft();
+        if (speedTest()) {
+            topLeft.moveLeft();
+            bottomRight.moveLeft();
+        }
     }
 
     @Override
     public void moveRight() {
-        topLeft.moveRight();
-        bottomRight.moveRight();
+        if (speedTest()) {
+            topLeft.moveRight();
+            bottomRight.moveRight();
+        }
     }
 }

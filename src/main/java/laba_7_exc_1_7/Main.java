@@ -20,11 +20,20 @@ public class Main {
     public static void main(String[] args) {
         Printable[] printables = random_fill();
         printMagazines(printables);
+        printBooks(printables);
     }
 
     public static void printMagazines(Printable[] printables) {
         for (int i = 0; i < printables.length; ++i) {
             if (printables[i] instanceof Journal) {
+                printables[i].print();
+            }
+        }
+    }
+
+    public static void printBooks(Printable[] printables) {
+        for (int i = 0; i < printables.length; ++i) {
+            if (printables[i] instanceof Book) {
                 printables[i].print();
             }
         }

@@ -14,7 +14,7 @@ public class Student implements Comparable<Student> {
 
     @Override
     public String toString() {
-        return "%d: %s".formatted(id, name);
+        return "%d: %s (GPA %d)".formatted(id, name, GPA);
     }
 
     @Override

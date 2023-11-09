@@ -3,9 +3,6 @@ package laba_9_exc_2;
 import java.util.Random;
 
 public class Sorting {
-    public static void quick_sort(Student[] students) {
-
-    }
 
     public static Student[] random_students() {
         Random rand = new Random();
@@ -27,9 +24,9 @@ public class Sorting {
         System.out.println("Before:");
         printArray(students);
 
-        selectionSort(students);
+        SortingStudentsByGPA studentsByGPA = new SortingStudentsByGPA();
+        studentsByGPA.quick_sort(students);
         System.out.println("\nAfter:");
         printArray(students);
-
     }
 }

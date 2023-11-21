@@ -6,7 +6,7 @@ import java.awt.event.ActionListener;
 
 public class Calculator {
     public static void main(String[] args)  {
-        Frame f = new Frame("Calculator");
+        Frame f = new Frame("Country");
 
         Label lhs_label = new Label();
         lhs_label.setText("Первое число:");

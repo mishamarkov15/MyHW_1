@@ -24,6 +24,10 @@ public class MainFrame extends JFrame {
     }
 
     public static void main(String[] args) throws IOException {
+        if (args.length < 1) {
+            System.out.println("You must pass path to image as program argument!");
+            return;
+        }
         MainFrame m = new MainFrame(args[0]);
     }
 }

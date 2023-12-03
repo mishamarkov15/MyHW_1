@@ -1,4 +1,4 @@
-package laba_13_exc3;
+package laba_13_exc_3;
 
 import java.util.StringTokenizer;
 

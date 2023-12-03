@@ -1,4 +1,4 @@
-package laba_13_exc3;
+package laba_13_exc_3;
 
 public class Main {
     public static void main(String[] args) {

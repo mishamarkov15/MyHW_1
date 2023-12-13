@@ -1,4 +1,4 @@
-package laba4_1_exc_2;
+package laba_4_1_exc_2;
 
 public class Main {
     public static void main(String[] args) {

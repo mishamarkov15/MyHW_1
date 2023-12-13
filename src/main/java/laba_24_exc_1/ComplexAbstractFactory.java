@@ -1,4 +1,4 @@
-package laba2_24_exc_1;
+package laba_24_exc_1;
 
 public interface ComplexAbstractFactory {
     public Complex createComplex();

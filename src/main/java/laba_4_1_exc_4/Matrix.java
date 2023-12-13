@@ -1,6 +1,4 @@
-package laba4_1_exc_4;
-
-import laba4_1_exc_2.Phone;
+package laba_4_1_exc_4;
 
 import java.util.Scanner;
 

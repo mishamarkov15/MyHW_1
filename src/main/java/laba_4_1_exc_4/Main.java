@@ -1,4 +1,4 @@
-package laba4_1_exc_4;
+package laba_4_1_exc_4;
 
 import java.util.Scanner;
 

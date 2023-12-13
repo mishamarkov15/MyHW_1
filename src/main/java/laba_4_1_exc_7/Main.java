@@ -1,4 +1,4 @@
-package laba4_1_exc_7;
+package laba_4_1_exc_7;
 
 import java.util.Objects;
 import java.util.Random;

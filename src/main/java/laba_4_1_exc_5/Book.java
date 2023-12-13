@@ -1,4 +1,4 @@
-package laba4_1_exc_5;
+package laba_4_1_exc_5;
 
 public class Book {
     String title;

@@ -1,4 +1,4 @@
-package laba_20_exc_1;
+package laba_20_exc_1_2_3;
 
 import java.io.Serializable;
 

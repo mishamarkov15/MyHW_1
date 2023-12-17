@@ -1,6 +1,8 @@
 package laba_20_exc_1;
 
-public class TestClass<T, V, K> {
+import java.io.Serializable;
+
+public class TestClass<T extends Comparable, V extends Serializable, K> {
     private T t;
     private V v;
     private K k;
